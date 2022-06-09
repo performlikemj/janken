@@ -16,53 +16,52 @@ function playerSelection() {
     to choose again */
     if (choice === "rock" || choice === "paper" || choice === "scissors") {
         return choice;
-    } else if (choice === "quit") {
-        return;
-    } else {
-        playerSelection();
-    }
+}
 }
 
-const userTurn = playerSelection();
-const computerTurn = computerPlay();
+
 /*  single game */
 /*  takes two parameters, the playerSelection and computerSelection */
 function singleRound(userTurn, computerTurn) {
     /*  output outcome of single game */
-    switch (userTurn === "rock") {
-        case (computerTurn === "rock"):
-            console.log("Tie");
-            return "Tie!";
-        case (computerTurn === "paper"):
-            console.log("You lose!");
-            return "You lose! Paper beats rock.";
-        case (computerTurn === "scissors"):
-            console.log("You win!");
-            return "You win! Rock beats scissors";
-    }
-
-    switch (userTurn === "paper") {
-        case (computerTurn === "paper"):
-            console.log("Tie");
-           return "Tie!";
-        case (computerTurn === "scissors"):
-            console.log("You lose!");
-            return "You lose! Scissors beats rock.";
-        case (computerTurn === "rock"):
-            console.log("You win!");
-            return "You win! paper beats rock";
-    }
-
-    switch (userTurn === "scissors") {
-        case (computerTurn === "scissors"):
-            console.log("Tie");
-           return "Tie!";
-        case (computerTurn === "rock"):
-            console.log("You lose!");
-            return "You lose! rock beats rock.";
-        case (computerTurn === "paper"):
-            console.log("You win!");
-            return "You win! Scissors beats rock";
-    }
-    
+    if (userTurn === "rock") {
+        if (computerTurn === "rock") {
+            return "rock vs rock is a Tie"
+        } else if (computerTurn === "paper") {
+            return "You lose! rock loses to paper"
+        } else if (computerTurn === "scissors"){
+            return "You win! rock crushes scissors"
+        }
+    } else if (userTurn === "paper") {
+        if (computerTurn === "paper") {
+            return "paper vs paper is a Tie"
+        } else if (computerTurn === "scissors") {
+            return "You lose! paper gets cut by scissors"
+        } else if (computerTurn === "rock"){
+            return "You win! paper covers up rock"
+        }
+    } else if (userTurn === "scissors") {
+        if (computerTurn === "scissors") {
+            return "scissors vs scissors is a Tie"
+        } else if (computerTurn === "rock") {
+            return "You lose! rock breaks scissors"
+        } else if (computerTurn === "paper") {
+            return "You win! scissors cuts paper"
+        }       
 }
+}
+
+
+/*  create function to play the game 5 times */
+function game() {
+    /*  user a for loop to go through the game 5 times */
+    for (let i=0; i<5; i++) {
+        /*  in the for loop, run the function to ask player what choice is */
+        let userTurn = playerSelection();
+        let computerTurn = computerPlay();
+        let result = singleRound(userTurn, computerTurn);
+        console.log(result);
+    }
+}
+
+game();
