@@ -10,7 +10,7 @@ function computerPlay() {
 /*  playerSelection */
 /*  create a function that asks the player what they want to play */
 function playerSelection() {
-    let choice = prompt("Pick rock, paper, or scissors. Or quit to give up");
+    let choice = prompt("Pick rock, paper, or scissors.");
     choice = choice.toLowerCase();
 /*  if selection is not equal to rock, paper, or scissors, or quit, ask user
     to choose again */
