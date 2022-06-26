@@ -65,7 +65,7 @@ function game() { */
 } */
 
 
-function buttonSelect(e){
+function buttonSelect(){
     let computerTurn = computerPlay();
     if (this.className === 'rock') {
          let result = singleRound('rock', computerTurn);
