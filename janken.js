@@ -64,10 +64,49 @@ function game() { */
     }
 } */
 
-function game() {
+let you = 0;
+let friend = 0;
+let tie = 0;
+const scores = document.querySelectorAll('td');
+
+function game(str) {
     /* function takes a parameter and depending on the parameter
     of left or right, a condition is run to add score until one gets to 5
     wins */
+    if (str.includes('win')) {
+        you += 1;
+        console.log(you);
+    } else if (str.includes('lose')) {
+        friend += 1;
+        console.log(friend);
+    } else {
+        tie += 1;
+        console.log('tie');
+    }
+    scores.forEach(score => {
+        if (score.className === 'you') {
+            score.firstChild.textContent = you;
+        } else if (score.className === 'friend') {
+            score.firstChild.textContent = friend;
+        } else {
+            score.firstChild.textContent = tie;
+        }
+    } );
+
+    if (you === 5) {
+        you = 0;
+        friend = 0;
+        tie = 0;
+        alert('Congratulations! Free drinks!');
+        return;
+    } else if (friend === 5) {
+        you = 0;
+        friend = 0;
+        tie = 0;
+        alert('Whole bar gets free drinks, and you\'re paying!');
+        return;
+
+    }
 }
 
 
@@ -75,13 +114,13 @@ function buttonSelect(){
     let computerTurn = computerPlay();
     if (this.className === 'rock') {
          let result = singleRound('rock', computerTurn);
-         console.log(result);
+         game(result);
     } else if (this.className === 'paper') {
         let result = singleRound('paper', computerTurn);
-        console.log(result);
+        game(result);
     } else if (this.className === 'scissors') {
         let result = singleRound('scissors', computerTurn);
-        console.log(result);
+        game(result);
     }
 } 
 
