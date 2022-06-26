@@ -64,6 +64,12 @@ function game() { */
     }
 } */
 
+function game() {
+    /* function takes a parameter and depending on the parameter
+    of left or right, a condition is run to add score until one gets to 5
+    wins */
+}
+
 
 function buttonSelect(){
     let computerTurn = computerPlay();
