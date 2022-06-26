@@ -64,4 +64,25 @@ function game() { */
     }
 } */
 
-game();
+
+function buttonSelect(e){
+    let computerTurn = computerPlay();
+    if (this.className === 'rock') {
+         let result = singleRound('rock', computerTurn);
+         console.log(result);
+    } else if (this.className === 'paper') {
+        let result = singleRound('paper', computerTurn);
+        console.log(result);
+    } else if (this.className === 'scissors') {
+        let result = singleRound('scissors', computerTurn);
+        console.log(result);
+    }
+} 
+
+
+const butts = document.querySelectorAll('button');
+butts.forEach( butt => butt.addEventListener('click', buttonSelect));
+
+
+
+/* game(); */
