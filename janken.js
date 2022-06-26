@@ -52,16 +52,16 @@ function singleRound(userTurn, computerTurn) {
 }
 
 
-/*  create function to play the game 5 times */
-function game() {
-    /*  user a for loop to go through the game 5 times */
-    for (let i=0; i<5; i++) {
-        /*  in the for loop, run the function to ask player what choice is */
+/*  create function to play the game 5 times 
+function game() { */
+    /*  user a for loop to go through the game 5 times 
+    for (let i=0; i<5; i++) {  */
+        /*  in the for loop, run the function to ask player what choice is 
         let userTurn = playerSelection();
         let computerTurn = computerPlay();
         let result = singleRound(userTurn, computerTurn);
         console.log(result);
     }
-}
+} */
 
 game();
